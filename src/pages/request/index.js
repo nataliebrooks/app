@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import getFirebaseAdmin from "../../app/firebaseAdmin";
 import { getFirebaseStorage } from "../../app/firebaseClient";
 import Button from "../../components/Button";
-import Media from "../../components/Media";
+import ImageIcon from "../../icons/image";
 import CreateSuccessNotification from "../../components/Notification/CreateSuccessNotification";
 import Description from "../../components/Request/Description";
 import ReferenceLink from "../../components/Request/ReferenceLink";
@@ -122,7 +122,16 @@ function Request() {
         </div>
       ) : (
         <div className="flex flex-1 flex-col">
-          <Media media={media} setMedia={setMedia} />
+          <label className="flex flex-col justify-center w-full h-full border-4 cursor-pointer rounded-lg hover:border-green-300">
+            <div className="flex flex-col items-center pt-6">
+              <ImageIcon />
+              <div className="flex flex-col text-sm text-center text-gray-400">
+                <span className="font-semibold">add photos</span>
+                <span className="">or drag and drop</span>
+              </div>
+            </div>
+            <input type="file" accept="image/*" className="opacity-0" multiple />
+          </label>
           <br />
           <div className="flex flex-col flex-1 text-black">
             <div className="w-75 border-t-2 flex justify-end text-sm text-gray-400 pb-2">
